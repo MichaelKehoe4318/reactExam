@@ -31,6 +31,11 @@ export default function MovieCard({ movie, action }) {
     addToFavorites(movie);
   };
 
+  const releaseDate = new Date(movie.release_date);
+  const newDate = releaseDate.toDateString( 
+    "en-GB", {day: "2-digit", month: "short", year: "2-digit"} //I can't figure out why it's not giving the proper format
+);
+//movie.release_date
 
   return (
     <Card>
@@ -62,7 +67,7 @@ export default function MovieCard({ movie, action }) {
           <Grid size={{ xs: 6 }}>
             <Typography variant="h6" component="p">
               <CalendarIcon fontSize="small" />
-              {movie.release_date}
+              {newDate}
             </Typography>
           </Grid>
           <Grid size={{ xs: 6 }}>
